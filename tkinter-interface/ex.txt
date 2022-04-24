@@ -1,0 +1,52 @@
+class Factorial{
+    public int number;
+    int x;
+    public static bool isActive;
+    public static void main(String[] args, int number){
+        int number2;
+        bool test;
+        main(hello, test);
+        test = hello;
+        test = this.number;
+        System.out.println(args + test);
+    }
+}
+
+class Fac{
+    public int test;
+    public int ComputeFac(int num, bool isActive){
+        int num_aux ;
+        if (num<=1)
+            num_aux = 1 ;
+        else
+            num_aux = num;
+        return num_aux ;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
