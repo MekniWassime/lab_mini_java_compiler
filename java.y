@@ -65,9 +65,9 @@ int yylex(void);
 %start program
 
 %%
-program             : mainClass classDeclaration
+program             : mainClass classDeclarationsList
                     | mainClass
-                    | mainClass classDeclaration error {yyerror ("EOF expected"); }	
+                    | mainClass classDeclarationsList error {yyerror ("EOF expected"); }	
                     ;
 
 mainClass           : ClassKeyword Identifier OpenCurlyBracket PublicKeyword StaticKeyword VoidKeyword MainKeyword OpenParentheses StringKeyword OpenBracket ClosedBracket Identifier ClosedParentheses OpenCurlyBracket statement ClosedCurlyBracket ClosedCurlyBracket
@@ -79,7 +79,8 @@ mainClass           : ClassKeyword Identifier OpenCurlyBracket PublicKeyword Sta
                     | ClassKeyword Identifier OpenCurlyBracket PublicKeyword StaticKeyword VoidKeyword OpenParentheses StringKeyword OpenBracket ClosedBracket Identifier ClosedParentheses OpenCurlyBracket statement ClosedCurlyBracket ClosedCurlyBracket {yyerror (" error: main function expected"); }
                     ;
 
-classDeclaration    : ClassKeyword Identifier optionalExtendsStatement OpenCurlyBracket optionalVarDeclarations optionalMethodDeclarations ClosedCurlyBracket;
+classDeclarationsList : classDeclaration classDeclarationsList | ;
+classDeclaration    : ClassKeyword Identifier optionalExtendsStatement OpenCurlyBracket optionalVarDeclarations optionalMethodDeclarations ClosedCurlyBracket | ;
 
 optionalExtendsStatement    : ExtendsKeyword Identifier | ;
 optionalVarDeclarations     : varDeclaration optionalVarDeclarations | ;

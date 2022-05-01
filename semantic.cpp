@@ -316,7 +316,6 @@ Class parseClass(TokenIterator & tokens, vector<Class> alreadyDefined){
     classObject.name = tokens.getNextToken();
     while(tokens.getCurrentToken().compare("{") != 0)
         tokens.getNextToken();
-    tokens.getNextToken();
     tokens.getNextToken();//point at what's after "{"
     classObject.blockStart = tokens.saveCheckPoint();
     classObject.attributes = parseVarDeclarations(tokens);
